@@ -2,7 +2,7 @@
 include 'core/core_functions.php';
 use Functions as Functions;
 
-if(Functions::CheckPostRequest() == false){
+if((new Functions)->CheckPostRequest() == false){
     print_r("No URL specified: ");
     print_r("<a href='index.php'><button>Go Back</button></a>");
     exit();
@@ -16,7 +16,7 @@ if((new Functions)->CheckIfWebUrlExists($url) == true){
     exit();
 }
 
-Functions::ValidateURL($url) ? 0 : exit();
+(new Functions)->ValidateURL($url) ? 0 : exit();
 $shortCode = (new Functions)->CreateShortCode();
 
 $line = $shortCode . '|' . $url . PHP_EOL;
