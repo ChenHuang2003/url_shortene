@@ -13,6 +13,7 @@ if((new Functions)->CheckIfWebUrlExists($url) == true){
     $shortCode = (new Functions)->RetrieveShortUrl($url);
     print_r("URL already exists:");
     print_r("<a href='./$shortCode'>$shortCode</a> ");
+    print_r("<a href='index.php'><button>Go Back</button></a>");
     exit();
 }
 
@@ -23,4 +24,5 @@ $line = $shortCode . '|' . $url . PHP_EOL;
 (new Functions)->SaveUrlToDatabase($shortCode, $url);
 
 // Provide the short URL to the user
-print_r("Shortened URL: <a href='./$shortCode'>$shortCode</a>");
+print_r("Shortened URL: <a href='./$shortCode'>$shortCode</a> ");
+print_r("<a href='index.php'><button>Go Back</button></a>");
